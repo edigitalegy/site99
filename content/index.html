@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>learning_content</title>
+    <link rel="stylesheet" type="text/css" href="js/style.css">
+    </head>
+    <body>
+      <h3 class="heading">       </h3>      
+
+
+<div class="container">
+         <div class="main-video">
+          <div class="video">
+            <video src="ele/logo.mp4"  ></video>
+            <h3 class="title"> </h3>
+          </div>
+        </div>
+
+    <div class="video-list">
+          <div class="vid active">
+            <video src="vid/vid0.mp4" ></video>
+            <h3 class="title"> الأهداف </h3>
+          </div>
+          <div class="vid">
+            <video src="vid/vid1.mp4" ></video>
+            <h3 class="title">العصر العباسي الاول</h3>
+          </div>
+          <div class="vid">
+            <video src="vid/vid2.mp4" ></video>
+            <h3 class="title">العصر العباسي الثاني</h3>
+          </div>
+          <div class="vid">
+            <video src="vid/vmap.mp4" ></video>
+            <h3 class="title">النشاط الأول</h3>
+            <button class="btn" onClick="javascript:window.open('activity.html', '_self');">اضغط لحل النشاط</button>
+          </div>
+          <div class="vid">
+            <video src="ele/paper1.mp4" controls="false"></video>
+            <h3 class="title">ورقة عمل </h3>
+           <button class="btn" onClick="javascript:window.open('paper1.html', '_blank');">اضغط لحل ورقة العمل</button>
+          </div>
+          <div class="vid">
+            <video src="vid/vid3.mp4" ></video>
+            <h3 class="title">الدول المستقلة</h3>
+          </div>
+          <div class="vid">
+            <video src="ele/activity.mp4" controls="false"></video>
+            <h3 class="title">النشاط الثاني</h3>
+            <button class="btn" onClick="javascript:window.open('activity.html', '_blank');">اضغط لحل النشاط</button>
+          </div>
+
+          <div class="vid">
+            <video src="vid/vid4.mp4" ></video>
+            <h3 class="title">نهاية الدولة العباسية</h3>
+          </div>
+          <div class="vid">
+            <video src="ele/activity.mp4" controls="false"></video>
+            <h3 class="title">النشاط الثالث </h3>
+           <button class="btn" onClick="javascript:window.open('activity.html', '_blank');">اضغط لحل النشاط</button>
+          </div>
+          <div class="vid">
+            <video src="ele/paper2.mp4" controls="false"></video>
+            <h3 class="title">ورقة عمل </h3>
+           <button class="btn" onClick="javascript:window.open('paper2.html', '_blank');">اضغط لحل ورقة العمل</button>
+          </div>
+          <div class="vid">
+            <video src="ele/chat.mp4" controls="false"></video>
+            <h3 class="title">مناقشة</h3>
+           <button class="btn" onClick="javascript:window.open('#', '_blank');">اضغط للمناقشة</button>
+          </div>
+  </div>
+
+</div>
+
+<nav>
+  <ul>
+    <li> <button onClick="javascript:window.open('#', '_self');">الدول المستقلة</button></li>
+    <li> <button onClick="javascript:window.open('#', '_self');">الدولة الأموية في الأندلس</button></li>
+    <li> <button onClick="javascript:window.open('#', '_self');">نشاط</button></li>
+    <li> <button onClick="javascript:window.open('test.html', '_self');">التقويم</button></li>
+
+    </li>
+    </ul>
+    <div class="icon"></div>
+</nav>
+
+
+
+<script>
+      let listVideo = document.querySelectorAll('.video-list .vid'); 
+      let mainVideo = document.querySelector('.main-video video');
+      let title = document.querySelector('.main-video .title');
+     // let btn = document.querySelector('.main-video .btn');
+
+      listVideo.forEach(video =>{
+      video.onclick = () =>{
+      listVideo.forEach(vid => vid.classList.remove('active')); 
+      video.classList.add('active');
+      if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src'); 
+      if(src.charAt(0)=="v")
+      {
+        mainVideo.src = src;
+        mainVideo.controls = true;
+        mainVideo.autoplay=true;
+      }
+      else
+      {
+        mainVideo.src = src;
+        mainVideo.controls = false;
+
+      }
+      let text = video.children[1].innerHTML; 
+     // let inbtn = video.children[2].innerHTML; 
+      title.innerHTML = text;
+     // btn.innerHTML = inbtn;
+                                            };
+                            };
+                                });
+
+//-----------------------------------------------------------------------------------
+ const icon = document.querySelector('.icon');
+const nav = document.querySelector('nav');
+
+icon.addEventListener('click', () => {
+  icon.classList.toggle('close');
+  nav.classList.toggle('show');
+})
+//-----------------------------------------------------------------------------------
+</script>
+
+
+
+
+    </body>
+</html>
